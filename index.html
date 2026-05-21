@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[IELTS 1984] Registration Form - YouPass</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ========== TOP BAR (cream banner) ========== -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="logo">
+        <span class="logo-icon">🏔️</span>
+        <span class="logo-text">YouPass</span>
+      </div>
+      <div class="topbar-banner">
+        🌟 <span>Nền tảng YouPass được phát triển bởi <b>Trung Tâm IELTS 1984</b></span> 🌟
+      </div>
+      <div class="topbar-right">
+        <span class="t-link"><span class="t-ico">📋</span> IELTS 198</span>
+        <a href="#" class="t-link strong">Cách luyện tập FREE</a>
+        <a href="#" class="t-link"><span class="t-ico green">●</span> Group Luyện Writing</a>
+        <button class="btn-pro">Nâng cấp PRO 🔥</button>
+        <span class="bell">🔔</span>
+        <div class="avatar"></div>
+      </div>
+    </div>
+
+    <!-- Mint nav bar -->
+    <div class="mintnav">
+      <div class="mintnav-inner">
+        <a href="#"><span class="n-ico">🏠</span> My Homepage</a>
+        <a href="#"><span class="n-ico">📚</span> Khóa học Intensive 7.0</a>
+        <a href="#"><span class="n-ico">📖</span> Khoá E-learning lẻ</a>
+        <a href="#"><span class="n-ico">💪</span> Luyện tập 4 kỹ năng</a>
+        <a href="#"><span class="n-ico">📓</span> Sổ Từ vựng</a>
+        <a href="#"><span class="n-ico">📊</span> Kết quả học viên</a>
+        <a href="#" class="active"><span class="n-ico">⭐</span> IELTS 1984</a>
+      </div>
+    </div>
+
+    <!-- Sub tabs -->
+    <div class="subtabs">
+      <div class="subtabs-inner">
+        <a href="#"><span class="n-ico">📝</span> Test đầu vào</a>
+        <a href="#" class="active"><span class="n-ico">📍</span> Đăng ký ghi danh</a>
+        <a href="#"><span class="n-ico">📑</span> Learning profile</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar">
+      <a href="#" class="side-link">
+        <span class="s-ico">📘</span> Learning profile
+      </a>
+      <a href="#" class="side-link active">
+        <span class="s-ico">📍</span> Đăng ký ghi danh
+      </a>
+      <a href="#" class="side-link">
+        <span class="s-ico">🚩</span> Test đầu vào
+      </a>
+    </aside>
+
+    <!-- ========== MAIN FORM ========== -->
+    <main class="main">
+      <form id="registration-form" novalidate>
+        <!-- Form title bar -->
+        <div class="form-title-bar">
+          <button type="button" class="back-btn">‹ Quay lại trang trước</button>
+          <h1>[IELTS 1984] REGISTRATION FORM</h1>
+          <span class="spacer"></span>
+        </div>
+
+        <!-- ===== Section 1 ===== -->
+        <section class="card">
+          <h2>1. THÔNG TIN CÁ NHÂN</h2>
+          <p class="hint">
+            * Đảm bảo thông tin <b>Họ và tên - Ngày sinh - Địa chỉ</b> trùng khớp với thông tin trên ứng dụng VNeID. Trung tâm sẽ không xử lý các nhu cầu phát sinh liên quan tới hoàn phí nếu thông tin không chính xác.
+          </p>
+
+          <div class="grid-3">
+            <div class="field">
+              <label>Họ và tên <span class="req">*</span></label>
+              <div class="input-wrap">
+                <span class="prefix">👤</span>
+                <input type="text" name="fullname" value="Yến Nhi" required />
+              </div>
+            </div>
+            <div class="field">
+              <label>Ngày sinh <span class="req">*</span></label>
+              <div class="input-wrap">
+                <span class="prefix">📅</span>
+                <input type="text" name="dob" value="01/11/2007" required />
+                <span class="suffix">📅</span>
+              </div>
+            </div>
+            <div class="field">
+              <label>Số điện thoại của bạn <span class="req">*</span></label>
+              <div class="input-wrap">
+                <span class="prefix">📞</span>
+                <input type="text" name="phone" value="0445566789" required />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Link facebook của bạn <span class="req">*</span></label>
+              <div class="input-wrap">
+                <span class="prefix prefix-fb">f</span>
+                <input type="text" name="facebook"
+                  value="https://www.facebook.com/share/1AGyiE2pRy/?m" required />
+              </div>
+            </div>
+            <div class="field">
+              <label>Địa chỉ <span class="req">*</span></label>
+              <div class="input-wrap">
+                <span class="prefix">📍</span>
+                <input type="text" name="address" value="S6.0606.24 Vinhome Grand Park" required />
+              </div>
+            </div>
+          </div>
+
+          <p class="hint small">
+            Tụi mình có group học tập tại facebook, để lại link và cùng tham gia với tụi mình nhé.
+          </p>
+
+          <label class="confirm-pill">
+            <input type="checkbox" id="confirm-vneid" />
+            <span>Xác nhận thông tin của bạn đã đúng với thông tin trên ứng dụng VNeID</span>
+          </label>
+        </section>
+
+        <!-- ===== Section 2 ===== -->
+        <section class="card">
+          <h2>2. THÔNG TIN GHI DANH</h2>
+          <p class="hint">
+            Trường hợp lớp bạn muốn ghi danh <b>ĐÃ HẾT CHỖ</b>:<br/>
+            Bạn có thể đăng ký vào <b>Danh sách chờ lớp</b> bằng cách điền vào <b>THÔNG TIN ĐỢI LỚP</b><br/>
+            <span class="bullet">●</span> Nếu có học viên huỷ lớp, học vụ sẽ liên hệ để bạn đăng ký lớp<br/>
+            <span class="bullet">●</span> Nếu không còn chỗ, bạn sẽ được ưu tiên nhận Lịch Khai Giảng sớm cho đợt kế tiếp<br/>
+            Nếu có bắt kỳ thắc mắc nào vui lòng liên hệ qua <a href="#" class="link-strong">Zalo IELTS1984</a> để được hỗ trợ
+          </p>
+
+          <div class="table-wrap">
+            <table class="class-table">
+              <thead>
+                <tr>
+                  <th>Mã lớp</th>
+                  <th>Hình thức học</th>
+                  <th>Ngày khai giảng</th>
+                  <th>Thời gian học</th>
+                  <th>Ca học</th>
+                  <th>Tình trạng lớp</th>
+                  <th>Học phí</th>
+                </tr>
+              </thead>
+              <tbody id="class-rows"></tbody>
+            </table>
+          </div>
+
+          <!-- ===== Waitlist sub-card ===== -->
+          <div class="waitlist-card">
+            <h3>THÔNG TIN CHỜ LỚP</h3>
+
+            <div class="field">
+              <label class="q-label">Bạn đang chờ lớp nào?</label>
+              <p class="hint small inline">
+                <span class="bullet">●</span> Nếu có học viên huỷ lớp, học vụ sẽ ưu tiên liên hệ để bạn đăng ký lớp
+              </p>
+              <input type="text" name="waitClass" placeholder="Sao chép mã lớp & điền vào đây" />
+            </div>
+
+            <p class="hint">
+              Trong trường hợp lớp bạn chờ không có chỗ trống, chúng mình sẽ cố gắng tìm kiếm lớp khác phù hợp với lịch của bạn. Bạn hãy chọn các Lựa chọn bên dưới để Tám Bốn hỗ trợ bạn tìm lớp nhé!
+            </p>
+
+            <div class="field">
+              <label class="q-label">▶ Hình thức học <span class="req">*</span></label>
+              <div class="checks two-col">
+                <label><input type="checkbox" name="waitMode" value="ONLINE" checked> ONLINE</label>
+                <label><input type="checkbox" name="waitMode" value="OFFLINE" checked> OFFLINE</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="q-label">▶ Thời gian học <span class="req">*</span></label>
+              <div class="checks two-col">
+                <label><input type="checkbox" name="waitTime" value="T246-1745"> Tối 2-4-6 _ 17:45-19:45</label>
+                <label><input type="checkbox" name="waitTime" value="T357-1745" checked> Tối 3-5-7 _ 17:45-19:45</label>
+                <label><input type="checkbox" name="waitTime" value="T246-2000" checked> Tối 2-4-6 _ 20:00-22:00</label>
+                <label><input type="checkbox" name="waitTime" value="T357-2000" checked> Tối 3-5-7 _ 20:00-22:00</label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="q-label">▶ Thời gian bạn muốn học <span class="req">*</span></label>
+              <div class="month-picker" id="month-picker">
+                <div class="month-picker-input" id="month-picker-input" tabindex="0">
+                  <span class="mp-value" id="mp-value">Chọn tháng bạn muốn đi học</span>
+                  <span class="mp-arrow">▼</span>
+                </div>
+                <div class="month-picker-popover" id="month-picker-popover" hidden>
+                  <div class="mp-header">
+                    <button type="button" class="mp-nav" id="mp-prev">‹</button>
+                    <span class="mp-year" id="mp-year">2026</span>
+                    <button type="button" class="mp-nav" id="mp-next">›</button>
+                  </div>
+                  <div class="mp-grid" id="mp-grid"></div>
+                </div>
+                <input type="hidden" name="waitMonth" id="waitMonth" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Section 3 ===== -->
+        <section class="card">
+          <h2>3. CÂU HỎI KHẢO SÁT <span class="muted">(Chỉ dành cho học viên mới, học viên cũ không cần điền phần này bạn nhen)</span></h2>
+
+          <div class="field">
+            <label class="q-label">Hiện tại bạn đang làm gì?</label>
+            <div class="radios vertical">
+              <label><input type="radio" name="status" value="dilam"> Đã đi làm</label>
+              <label><input type="radio" name="status" value="sv"> Sinh viên</label>
+              <label><input type="radio" name="status" value="hs"> Học sinh</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="q-label">Bạn đang học tại trường nào?</label>
+            <input type="text" name="school" placeholder="Nhập tên trường bạn ở đây" />
+          </div>
+
+          <div class="field">
+            <label class="q-label">Bạn biết đến IELTS 1984 LẦN ĐẦU qua đầu thế?</label>
+            <div class="radios vertical">
+              <label><input type="radio" name="source"> Qua Facebook</label>
+              <label><input type="radio" name="source"> Qua TikTok</label>
+              <label><input type="radio" name="source"> Qua Google</label>
+              <label><input type="radio" name="source"> Qua Threads</label>
+              <label><input type="radio" name="source"> Qua YouPass.vn</label>
+              <label><input type="radio" name="source"> Bạn bè/Người thân giới thiệu</label>
+              <label><input type="radio" name="source"> Lý do khác</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="q-label">NỘI DUNG ĐẦU TIÊN bạn biết về IELTS 1984 là nội dung gì?</label>
+            <div class="radios vertical">
+              <label><input type="radio" name="content"> Bài post về con người/văn hoá/giới thiệu về trung tâm trên kênh IELTS 1984</label>
+              <label><input type="radio" name="content"> Bài post về nội dung học thuật, bài mẫu IELTS trên kênh IELTS Insights - Giải đề thi cùng IELTS 1984</label>
+              <label><input type="radio" name="content"> Clip sửa lỗi từ vựng/ngữ pháp trên kênh Sửa bài cùng IELTS 1984</label>
+              <label><input type="radio" name="content"> Từ bài review hoặc comment giới thiệu trên mạng xã hội</label>
+              <label><input type="radio" name="content"> Livestream của thầy Phạm Minh Khoa</label>
+              <label><input type="radio" name="content"> Luyện đề trên YouPass.vn</label>
+              <label><input type="radio" name="content"> Lý do khác</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="q-label">Chọn 1 lý do quan trọng nhất khiến bạn tin tưởng và chọn học IELTS 1984?</label>
+            <div class="checks vertical">
+              <label><input type="checkbox" name="reason"> Tin vào giới thiệu của bạn bè/người thân</label>
+              <label><input type="checkbox" name="reason"> Học phí phù hợp</label>
+              <label><input type="checkbox" name="reason"> Thông tin website đầy đủ, minh bạch</label>
+              <label><input type="checkbox" name="reason"> Các kênh mạng xã hội có nội dung hữu ích</label>
+              <label><input type="checkbox" name="reason"> Tư vấn trung thực, nhiệt tình</label>
+              <label><input type="checkbox" name="reason"> Nhiều review chân thật</label>
+              <label><input type="checkbox" name="reason"> Lý do khác</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== Section 4 ===== -->
+        <section class="card">
+          <h2>4. THÔNG TIN HỌC PHÍ</h2>
+          <p class="hint">
+            Việc điền form ghi danh này có tác dụng <b>tạm giữ chỗ trong vòng 5 ngày</b> (trừ trường hợp đăng ký vào tuần sát ngày khai giảng). Để chính thức vào lớp, bạn cần hoàn tất học phí trong vòng 5 ngày kể từ ngày điền form.
+          </p>
+          <p class="hint">
+            Với mong muốn đồng hành cùng học viên trên hành trình chinh phục chứng chỉ IELTS, IELTS 1984 đã triển khai <b>3 chương trình học bổng</b> dành cho học viên:
+          </p>
+          <ul class="dot-list">
+            <li>Học bổng <b>Đồng hành</b>: giảm <b>10%-25%</b> học phí cho học sinh, sinh viên có <b>thành tích học tập tốt</b> hoặc <b>hoàn cảnh khó khăn</b> (áp dụng cho khoá học đầu tiên tại IELTS 1984).</li>
+            <li>Học bổng <b>Chăm chỉ</b>: giảm <b>300.000đ-1.500.000đ/ khoá</b> cho học viên đi học <b>chuyên cần</b> và làm bài <b>chăm chỉ</b> (áp dụng từ khoá học thứ 2 trở đi).</li>
+            <li>Học bổng <b>Giới thiệu</b>: giảm <b>300.000đ</b> cho cả người <b>giới thiệu</b> và người <b>được giới thiệu</b> khi có học viên mới đến học tại IELTS 1984.</li>
+          </ul>
+          <p class="hint">
+            Bạn tìm hiểu chi tiết chi tiết các chương trình học bổng của trung tâm tại đây nhé: <a href="#" class="link-strong">CHƯƠNG TRÌNH HỌC BỔNG ĐỒNG HÀNH</a>
+          </p>
+          <p class="hint">
+            <b>*Lưu ý</b>: Học bổng chỉ được áp dụng <b>TRƯỚC</b> khi thanh toán học phí và <b>KHÔNG HOÀN LẠI</b>, vì vậy bạn hãy xem kĩ các chương trình học bổng để không bỏ lỡ quyền lợi ưu đãi về học phí nhé.
+          </p>
+        </section>
+
+        <!-- ===== Important policies card ===== -->
+        <section class="card">
+          <h2>CÁC ĐIỂM QUAN TRỌNG CẦN LƯU Ý</h2>
+          <p class="hint">
+            Để đảm bảo quyền lợi học tập của bạn, Trung tâm xin lưu ý 03 chính sách quan trọng dưới đây. Mong bạn dành thời gian <b>đọc kỹ &amp; xác nhận đã hiểu rõ.</b>
+          </p>
+
+          <p class="policy-title"><b>1. Học viên hoàn thành khoá học và có thể lên lớp khi:</b></p>
+          <ul class="dot-list">
+            <li>Đạt đủ các tiêu chí tối thiểu về tính chuyên cần: không vắng quá <b>09 buổi/khoá</b> và nộp đúng hạn tối thiểu <b>50% bài tập</b> mỗi kỹ năng.</li>
+            <li>Được giáo viên đánh giá năng lực "Đủ điều kiện lên lớp".</li>
+          </ul>
+
+          <p class="policy-title"><b>2. Chính sách học lại:</b> Học viên được học lại tối đa 01 lần mỗi khoá học nếu tham gia đầy đủ (vắng không quá 02 buổi) và hoàn thành bài tập đầy đủ (không bỏ hoàn nộp trễ quá 3 lần).</p>
+
+          <p class="policy-title"><b>3. Chính sách hoàn phí:</b></p>
+          <ul class="dot-list">
+            <li>Học viên được hoàn 100% học phí nếu huỷ lớp <b>trước 72h</b> so với ngày khai giảng.</li>
+            <li>Hoàn 95% nếu huỷ trong 72h trước khai giảng.</li>
+            <li>Hoàn 90% trong 03 buổi đầu tiên và không hoàn phí sau buổi học thứ 03 (các mốc thời gian này không tính Chủ Nhật và ngày lễ).</li>
+          </ul>
+
+          <p class="policy-title"><b>4. Chính sách bảo lưu:</b> Học viên được bảo lưu 01 lần duy nhất trong suốt lộ trình với lệ phí <b>1.000.000đ</b>; việc bảo lưu phải gửi trong 06 tuần đầu khoá và không áp dụng từ tuần học thứ 07.</p>
+
+          <p class="policy-title"><b>5. Chính sách cam kết đầu ra:</b> Học viên khoá BUD/BLOOM có thể được học lại miễn phí nếu tham gia kỳ thi IELTS trong vòng 60 ngày kể từ ngày kết thúc khoá học mà không đạt được điểm số cam kết đầu ra.</p>
+
+          <p class="hint">
+            Ngoài ra, các <b>Chính sách</b> khác bạn vui lòng xem chi tiết tại: <a href="#" class="link-strong">Điều khoản &amp; chính sách học tập tại IELTS 1984</a>
+          </p>
+
+          <label class="agree-pill" for="agree">
+            <input type="checkbox" id="agree" />
+            <span>
+              Tôi xác nhận đã đọc, hiểu và đồng ý với toàn bộ nội dung trong <b>Điều khoản &amp; chính sách học tập tại IELTS 1984.</b>
+              <br/><span class="muted">Tôi đồng ý tuân thủ các điều khoản trong suốt quá trình học.</span>
+            </span>
+          </label>
+
+          <p class="error-msg" id="form-error">🔴 Bạn cần phải điền hết các thông tin trong form trước khi submit form bạn nhé</p>
+
+          <div class="submit-wrap">
+            <button type="submit" class="submit-btn" id="submit-btn" disabled>SUBMIT FORM</button>
+          </div>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
