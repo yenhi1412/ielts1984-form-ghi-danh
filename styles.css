@@ -442,6 +442,22 @@ input[type="text"]:focus {
 }
 .code-cell input[type="radio"] { margin: 0; accent-color: var(--mint); }
 .code-cell label { font-weight: 700; color: var(--text); cursor: pointer; }
+.code-cell .copy-btn {
+  background: transparent;
+  border: none;
+  padding: 2px;
+  margin-left: auto;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.code-cell .copy-btn:hover { color: var(--navy); background: #eef2f7; }
+.code-cell .copy-btn.copied { color: var(--green-ok); }
+.class-table tbody tr.full .code-cell .copy-btn { display: none; }
 
 .mode-pill {
   display: inline-flex;

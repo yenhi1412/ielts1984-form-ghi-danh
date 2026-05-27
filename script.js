@@ -24,6 +24,12 @@ function renderClassRows() {
         <div class="code-cell">
           <input type="radio" name="class" value="${c.code}" id="class-${i}" ${full ? "disabled" : ""} />
           <label for="class-${i}">${c.code}</label>
+          <button type="button" class="copy-btn" data-code="${c.code}" title="Sao chép mã lớp" aria-label="Sao chép mã lớp">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
         </div>
       </td>
       <td><span class="mode-pill ${c.mode === "OFFLINE" ? "offline" : ""}">${c.mode}</span></td>
@@ -37,6 +43,34 @@ function renderClassRows() {
   }).join("");
 
   tbody.addEventListener("click", (e) => {
+    // Copy button: copy code to clipboard without selecting row
+    const copyBtn = e.target.closest(".copy-btn");
+    if (copyBtn) {
+      e.stopPropagation();
+      const code = copyBtn.dataset.code;
+      const finish = () => {
+        copyBtn.classList.add("copied");
+        copyBtn.setAttribute("title", "Đã sao chép!");
+        setTimeout(() => {
+          copyBtn.classList.remove("copied");
+          copyBtn.setAttribute("title", "Sao chép mã lớp");
+        }, 1200);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(finish, finish);
+      } else {
+        // Fallback for non-secure contexts
+        const ta = document.createElement("textarea");
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (_) {}
+        document.body.removeChild(ta);
+        finish();
+      }
+      return;
+    }
+
     const tr = e.target.closest("tr");
     if (!tr || tr.classList.contains("full")) return;
     const idx = tr.dataset.index;
