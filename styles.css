@@ -463,7 +463,6 @@ input[type="text"]:focus {
   background: transparent;
   border: none;
   padding: 2px;
-  margin-left: auto;
   color: var(--muted);
   cursor: pointer;
   border-radius: 3px;
@@ -474,7 +473,6 @@ input[type="text"]:focus {
 }
 .code-cell .copy-btn:hover { color: var(--navy); background: #eef2f7; }
 .code-cell .copy-btn.copied { color: var(--green-ok); }
-.class-table tbody tr.full .code-cell .copy-btn { display: none; }
 
 .mode-pill {
   display: inline-flex;
@@ -509,6 +507,8 @@ input[type="text"]:focus {
 .class-table tbody tr.full .mode-pill::before { background: #d1d5db; }
 .class-table tbody tr.full:hover { background: transparent; cursor: not-allowed; }
 .class-table tbody tr.full input[type="radio"] { cursor: not-allowed; }
+.class-table tbody tr.full .copy-btn { cursor: pointer; color: var(--muted); }
+.class-table tbody tr.full .copy-btn:hover { color: var(--navy); }
 
 /* ===== Waitlist card ===== */
 .waitlist-card {
