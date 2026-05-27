@@ -322,6 +322,7 @@ form { background: var(--bg); }
 }
 .q-label { font-weight: 600; margin-top: 8px; }
 .req { color: var(--red); }
+.q-hint { color: var(--muted); font-weight: 400; font-size: 11px; }
 
 .input-wrap {
   position: relative;
