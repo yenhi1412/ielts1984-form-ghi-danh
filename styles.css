@@ -333,14 +333,44 @@ form { background: var(--bg); }
   margin-bottom: 6px;
 }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field > label, .q-label {
+.field > label {
   font-size: 12.5px;
   color: var(--text);
   font-weight: 500;
 }
-.q-label { font-weight: 600; margin-top: 10px; }
+
+/* Label with icon (Section 1 inputs) */
+label.field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: 700;
+}
+.lbl-ico {
+  width: 16px;
+  height: 16px;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.lbl-ico-fb { color: #1877f2; }
+
+/* Waitlist & survey labels — bigger + bold */
+label.q-label {
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--navy);
+  margin-top: 12px;
+  letter-spacing: -0.01em;
+}
 .req { color: var(--red); margin-left: 2px; }
-.q-hint { color: var(--muted); font-weight: 400; font-size: 11.5px; }
+.q-hint { color: var(--muted); font-weight: 400; font-size: 11.5px; font-style: italic; }
+
+/* Italic for all muted/gray text */
+input::placeholder { font-style: italic; }
+.status-full { font-style: italic; }
+.waitlist-card .hint.small.inline { font-style: italic; }
 
 .input-wrap {
   position: relative;
