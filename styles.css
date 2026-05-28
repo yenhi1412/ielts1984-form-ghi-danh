@@ -546,6 +546,16 @@ input[type="text"]:focus {
    Block layout so the expanded card spans the full section width. */
 .waitlist-section { margin-top: 14px; }
 
+/* Always-visible 5-line context hint below the toggle button */
+.waitlist-context {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--text);
+}
+.waitlist-context b { color: var(--navy); }
+.waitlist-context .bullet { color: var(--blue); margin-right: 4px; }
+
 /* Collapsed state: small outline button (secondary action) */
 .waitlist-toggle {
   display: inline-flex;
