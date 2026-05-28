@@ -542,34 +542,32 @@ input[type="text"]:focus {
 .class-table tbody tr.full .copy-btn:hover { color: var(--navy); }
 
 /* ===== Waitlist card ===== */
-/* Waitlist section: collapsed toggle (secondary action) */
-.waitlist-section {
-  margin-top: 12px;
-  display: flex;
-  justify-content: flex-start;
-}
+/* Waitlist section: container wraps toggle + expanded card.
+   Block layout so the expanded card spans the full section width. */
+.waitlist-section { margin-top: 14px; }
+
+/* Collapsed state: small outline button (secondary action) */
 .waitlist-toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: transparent;
-  color: var(--text-soft);
-  border: none;
-  padding: 6px 0;
+  background: #ffffff;
+  color: var(--navy);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-btn);
+  padding: 7px 12px;
   font-size: 12.5px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: var(--border-2);
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 .waitlist-toggle:hover {
+  background: var(--green-bg);
+  border-color: var(--mint);
   color: var(--navy);
-  text-decoration-color: var(--navy);
 }
-.waitlist-toggle svg { color: var(--muted); width: 13px; height: 13px; }
-.waitlist-toggle:hover svg { color: var(--navy); }
+.waitlist-toggle svg { width: 14px; height: 14px; color: var(--muted); }
+.waitlist-toggle:hover svg { color: var(--mint-2); }
 
 /* Animate expanding card */
 .waitlist-card[hidden] { display: none; }
