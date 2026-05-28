@@ -535,8 +535,9 @@ input[type="text"]:focus {
 .class-table tbody tr.full td { color: #9ca3af; }
 .class-table tbody tr.full .code-cell label { color: #9ca3af; font-weight: 700; }
 .class-table tbody tr.full .mode-pill::before { background: #d1d5db; }
-.class-table tbody tr.full:hover { background: #fafbfc; cursor: pointer; }
+.class-table tbody tr.full:hover { background: transparent; cursor: default; }
 .class-table tbody tr.full input[type="radio"] { cursor: pointer; }
+.class-table tbody tr.full .code-cell label { cursor: pointer; }
 .class-table tbody tr.full .copy-btn { cursor: pointer; color: var(--muted); }
 .class-table tbody tr.full .copy-btn:hover { color: var(--navy); }
 

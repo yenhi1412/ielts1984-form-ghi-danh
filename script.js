@@ -22,7 +22,7 @@ function renderClassRows() {
     <tr data-index="${i}" class="${full ? "full" : ""}">
       <td>
         <div class="code-cell">
-          <input type="radio" name="class" value="${c.code}" id="class-${i}" ${full ? "disabled" : ""} />
+          <input type="radio" name="class" value="${c.code}" id="class-${i}" ${full ? "data-full=\"1\"" : ""} />
           <label for="class-${i}">${c.code}</label>
           <button type="button" class="copy-btn" data-code="${c.code}" title="Sao chép mã lớp" aria-label="Sao chép mã lớp">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -74,14 +74,21 @@ function renderClassRows() {
     const tr = e.target.closest("tr");
     if (!tr) return;
 
-    // Hết chỗ → bật popup, lưu mã lớp đó để pre-fill nếu user chọn
+    const idx = parseInt(tr.dataset.index, 10);
+
+    // Dòng Hết chỗ: CHỈ khi click vào radio (hoặc label dẫn vào radio) mới bật popup.
+    // Click vào cell/text khác không phản ứng.
     if (tr.classList.contains("full")) {
-      const idx = parseInt(tr.dataset.index, 10);
-      openFullClassModal(CLASSES[idx]);
+      const targetsRadio =
+        e.target.matches('input[type="radio"]') ||
+        e.target.closest(`label[for="class-${idx}"]`);
+      if (targetsRadio) {
+        e.preventDefault(); // ngăn radio bị check
+        openFullClassModal(CLASSES[idx]);
+      }
       return;
     }
 
-    const idx = tr.dataset.index;
     const radio = document.getElementById(`class-${idx}`);
     if (radio && !radio.disabled) {
       radio.checked = true;
