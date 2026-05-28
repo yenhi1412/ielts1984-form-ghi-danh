@@ -72,7 +72,15 @@ function renderClassRows() {
     }
 
     const tr = e.target.closest("tr");
-    if (!tr || tr.classList.contains("full")) return;
+    if (!tr) return;
+
+    // Hết chỗ → bật popup, lưu mã lớp đó để pre-fill nếu user chọn
+    if (tr.classList.contains("full")) {
+      const idx = parseInt(tr.dataset.index, 10);
+      openFullClassModal(CLASSES[idx]);
+      return;
+    }
+
     const idx = tr.dataset.index;
     const radio = document.getElementById(`class-${idx}`);
     if (radio && !radio.disabled) {
@@ -136,6 +144,85 @@ function setupMonthPicker() {
   });
 }
 
+// ===== Waitlist expand/collapse + popup =====
+// Map class session+time → wait-time option value
+function mapClassToWaitTime(c) {
+  // sessions: "Tối 2-4-6", "Tối 3-5-7" (no Chiều case)
+  const isT246 = /2-4-6/.test(c.session);
+  const isT357 = /3-5-7/.test(c.session);
+  const is1745 = /17:45/.test(c.time);
+  const is2000 = /20:00/.test(c.time);
+  if (isT246 && is1745) return "T246-1745";
+  if (isT357 && is1745) return "T357-1745";
+  if (isT246 && is2000) return "T246-2000";
+  if (isT357 && is2000) return "T357-2000";
+  return null;
+}
+
+function expandWaitlist(triggerClass) {
+  document.getElementById("waitlist-toggle").hidden = true;
+  const card = document.getElementById("waitlist-card");
+  card.hidden = false;
+
+  // Reset checkboxes
+  document.querySelectorAll('input[name="waitMode"]').forEach(cb => cb.checked = false);
+  document.querySelectorAll('input[name="waitTime"]').forEach(cb => cb.checked = false);
+
+  if (triggerClass) {
+    document.querySelector('input[name="waitClass"]').value = triggerClass.code;
+    // Tick mode of that class only
+    const modeCb = document.querySelector(`input[name="waitMode"][value="${triggerClass.mode}"]`);
+    if (modeCb) modeCb.checked = true;
+    // Tick matching time
+    const tv = mapClassToWaitTime(triggerClass);
+    if (tv) {
+      const timeCb = document.querySelector(`input[name="waitTime"][value="${tv}"]`);
+      if (timeCb) timeCb.checked = true;
+    }
+  }
+
+  validateForm();
+  setTimeout(() => card.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+}
+
+function setupWaitlistToggle() {
+  document.getElementById("waitlist-toggle").addEventListener("click", () => expandWaitlist(null));
+}
+
+// ===== Modal: lớp Hết chỗ =====
+function openFullClassModal(classItem) {
+  document.getElementById("modal-class-code").textContent = classItem.code;
+  const modal = document.getElementById("full-class-modal");
+  modal.hidden = false;
+  modal.dataset.classCode = classItem.code;
+  modal.dataset.classIndex = CLASSES.indexOf(classItem);
+  document.body.style.overflow = "hidden";
+}
+
+function closeFullClassModal() {
+  document.getElementById("full-class-modal").hidden = true;
+  document.body.style.overflow = "";
+}
+
+function setupFullClassModal() {
+  document.getElementById("modal-close").addEventListener("click", closeFullClassModal);
+  document.getElementById("full-class-modal").addEventListener("click", (e) => {
+    if (e.target.id === "full-class-modal") closeFullClassModal();
+  });
+  document.getElementById("modal-fill-waitlist").addEventListener("click", () => {
+    const modal = document.getElementById("full-class-modal");
+    const idx = parseInt(modal.dataset.classIndex, 10);
+    const cls = CLASSES[idx];
+    closeFullClassModal();
+    expandWaitlist(cls);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !document.getElementById("full-class-modal").hidden) {
+      closeFullClassModal();
+    }
+  });
+}
+
 // ===== Validation =====
 function validateForm() {
   const requiredText = ["fullname", "dob", "phone", "facebook", "address"];
@@ -167,6 +254,8 @@ function validateForm() {
 document.addEventListener("DOMContentLoaded", () => {
   renderClassRows();
   setupMonthPicker();
+  setupWaitlistToggle();
+  setupFullClassModal();
 
   document.querySelectorAll('input[type="text"], input[type="checkbox"], input[type="radio"]').forEach((el) => {
     el.addEventListener("input", validateForm);

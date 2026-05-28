@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <!-- ========== TOP BAR (cream banner) ========== -->
@@ -163,60 +163,89 @@
             </table>
           </div>
 
-          <!-- ===== Waitlist sub-card ===== -->
-          <div class="waitlist-card">
-            <h3>THÔNG TIN CHỜ LỚP</h3>
+          <!-- ===== Waitlist sub-card (collapsed by default) ===== -->
+          <div class="waitlist-section" id="waitlist-section">
+            <!-- Collapsed state: just a button -->
+            <button type="button" class="waitlist-toggle" id="waitlist-toggle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Điền thông tin chờ lớp
+            </button>
 
-            <div class="field">
-              <label class="q-label">Bạn đang chờ lớp nào?</label>
-              <p class="hint small inline">
-                <span class="bullet">●</span> Nếu có học viên huỷ lớp, học vụ sẽ ưu tiên liên hệ để bạn đăng ký lớp. Nếu bạn không đang chờ lớp nào cụ thể, có thể bỏ qua phần này.
+            <!-- Expanded state: full form -->
+            <div class="waitlist-card" id="waitlist-card" hidden>
+              <h3>THÔNG TIN CHỜ LỚP</h3>
+
+              <div class="field">
+                <label class="q-label">Bạn đang chờ lớp nào?</label>
+                <p class="hint small inline">
+                  <span class="bullet">●</span> Nếu có học viên huỷ lớp, học vụ sẽ ưu tiên liên hệ để bạn đăng ký lớp. Nếu bạn không đang chờ lớp nào cụ thể, có thể bỏ qua phần này.
+                </p>
+                <input type="text" name="waitClass" placeholder="Sao chép mã lớp & điền vào đây" />
+              </div>
+
+              <p class="hint">
+                Trong trường hợp lớp bạn chờ không có chỗ trống, chúng mình sẽ cố gắng tìm kiếm lớp khác phù hợp với lịch của bạn. Bạn hãy chọn các Lựa chọn bên dưới để Tám Bốn hỗ trợ bạn tìm lớp nhé!
               </p>
-              <input type="text" name="waitClass" placeholder="Sao chép mã lớp & điền vào đây" />
-            </div>
 
-            <p class="hint">
-              Trong trường hợp lớp bạn chờ không có chỗ trống, chúng mình sẽ cố gắng tìm kiếm lớp khác phù hợp với lịch của bạn. Bạn hãy chọn các Lựa chọn bên dưới để Tám Bốn hỗ trợ bạn tìm lớp nhé!
-            </p>
-
-            <div class="field">
-              <label class="q-label">🖥️ Hình thức học <span class="req">*</span> <span class="q-hint">(chọn tất cả hình thức bạn có thể học)</span></label>
-              <div class="checks two-col">
-                <label><input type="checkbox" name="waitMode" value="ONLINE" checked> ONLINE</label>
-                <label><input type="checkbox" name="waitMode" value="OFFLINE" checked> OFFLINE</label>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="q-label">⏰ Thời gian học <span class="req">*</span> <span class="q-hint">(chọn tất cả giờ bạn có thể học)</span></label>
-              <div class="checks two-col">
-                <label><input type="checkbox" name="waitTime" value="T246-1745"> Tối 2-4-6 _ 17:45-19:45</label>
-                <label><input type="checkbox" name="waitTime" value="T357-1745" checked> Tối 3-5-7 _ 17:45-19:45</label>
-                <label><input type="checkbox" name="waitTime" value="T246-2000" checked> Tối 2-4-6 _ 20:00-22:00</label>
-                <label><input type="checkbox" name="waitTime" value="T357-2000" checked> Tối 3-5-7 _ 20:00-22:00</label>
-              </div>
-            </div>
-
-            <div class="field">
-              <label class="q-label">📅 Thời gian bạn muốn học <span class="req">*</span></label>
-              <div class="month-picker" id="month-picker">
-                <div class="month-picker-input" id="month-picker-input" tabindex="0">
-                  <span class="mp-value" id="mp-value">Chọn tháng bạn muốn đi học</span>
-                  <span class="mp-arrow">▼</span>
+              <div class="field">
+                <label class="q-label">🖥️ Hình thức học <span class="req">*</span> <span class="q-hint">(chọn tất cả hình thức bạn có thể học)</span></label>
+                <div class="checks two-col">
+                  <label><input type="checkbox" name="waitMode" value="ONLINE"> ONLINE</label>
+                  <label><input type="checkbox" name="waitMode" value="OFFLINE"> OFFLINE</label>
                 </div>
-                <div class="month-picker-popover" id="month-picker-popover" hidden>
-                  <div class="mp-header">
-                    <button type="button" class="mp-nav" id="mp-prev">‹</button>
-                    <span class="mp-year" id="mp-year">2026</span>
-                    <button type="button" class="mp-nav" id="mp-next">›</button>
+              </div>
+
+              <div class="field">
+                <label class="q-label">⏰ Thời gian học <span class="req">*</span> <span class="q-hint">(chọn tất cả giờ bạn có thể học)</span></label>
+                <div class="checks two-col">
+                  <label><input type="checkbox" name="waitTime" value="T246-1745"> Tối 2-4-6 _ 17:45-19:45</label>
+                  <label><input type="checkbox" name="waitTime" value="T357-1745"> Tối 3-5-7 _ 17:45-19:45</label>
+                  <label><input type="checkbox" name="waitTime" value="T246-2000"> Tối 2-4-6 _ 20:00-22:00</label>
+                  <label><input type="checkbox" name="waitTime" value="T357-2000"> Tối 3-5-7 _ 20:00-22:00</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="q-label">📅 Thời gian bạn muốn học <span class="req">*</span></label>
+                <div class="month-picker" id="month-picker">
+                  <div class="month-picker-input" id="month-picker-input" tabindex="0">
+                    <span class="mp-value" id="mp-value">Chọn tháng bạn muốn đi học</span>
+                    <span class="mp-arrow">▼</span>
                   </div>
-                  <div class="mp-grid" id="mp-grid"></div>
+                  <div class="month-picker-popover" id="month-picker-popover" hidden>
+                    <div class="mp-header">
+                      <button type="button" class="mp-nav" id="mp-prev">‹</button>
+                      <span class="mp-year" id="mp-year">2026</span>
+                      <button type="button" class="mp-nav" id="mp-next">›</button>
+                    </div>
+                    <div class="mp-grid" id="mp-grid"></div>
+                  </div>
+                  <input type="hidden" name="waitMonth" id="waitMonth" />
                 </div>
-                <input type="hidden" name="waitMonth" id="waitMonth" />
               </div>
             </div>
           </div>
         </section>
+
+        <!-- ===== Popup: lớp Hết chỗ ===== -->
+        <div class="modal-backdrop" id="full-class-modal" hidden>
+          <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button type="button" class="modal-close" id="modal-close" aria-label="Đóng">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <div class="modal-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <h3 id="modal-title" class="modal-title">Lớp đã hết chỗ</h3>
+            <p class="modal-text">
+              Lớp <b id="modal-class-code">—</b> đã hết chỗ, bạn hãy chọn ghi danh lớp khác nhé. Nếu không có lớp học nào phù hợp, bạn hãy để lại thông tin lớp — chúng mình sẽ ưu tiên lớp cho bạn.
+            </p>
+            <button type="button" class="modal-cta" id="modal-fill-waitlist">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Điền thông tin chờ lớp
+            </button>
+          </div>
+        </div>
 
         <!-- ===== Section 3 ===== -->
         <section class="card">
@@ -346,6 +375,6 @@
     </main>
   </div>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
