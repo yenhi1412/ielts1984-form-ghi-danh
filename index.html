@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 </head>
 <body>
   <!-- ========== TOP BAR (cream banner) ========== -->
@@ -161,13 +161,7 @@
 
           <!-- ===== Waitlist sub-card (collapsed by default) ===== -->
           <div class="waitlist-section" id="waitlist-section">
-            <!-- Collapsed state: just a button -->
-            <button type="button" class="waitlist-toggle" id="waitlist-toggle">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-              Điền thông tin chờ lớp
-            </button>
-
-            <!-- Always-visible context hint (below the button) -->
+            <!-- Always-visible context hint (above the button) -->
             <p class="waitlist-context">
               Trường hợp lớp bạn muốn ghi danh <b>ĐÃ HẾT CHỖ</b>:<br/>
               Bạn có thể đăng ký vào <b>Danh sách chờ lớp</b> bằng cách điền vào <b>THÔNG TIN ĐỢI LỚP</b><br/>
@@ -175,6 +169,12 @@
               <span class="bullet">●</span> Nếu không còn chỗ, bạn sẽ được ưu tiên nhận Lịch Khai Giảng sớm cho đợt kế tiếp<br/>
               Nếu có bắt kỳ thắc mắc nào vui lòng liên hệ qua <a href="#" class="link-strong">Zalo IELTS1984</a> để được hỗ trợ
             </p>
+
+            <!-- Collapsed state: just a button -->
+            <button type="button" class="waitlist-toggle" id="waitlist-toggle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Điền thông tin chờ lớp
+            </button>
 
             <!-- Expanded state: full form -->
             <div class="waitlist-card" id="waitlist-card" hidden>
@@ -373,6 +373,6 @@
     </main>
   </div>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

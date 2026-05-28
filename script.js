@@ -94,6 +94,8 @@ function renderClassRows() {
       radio.checked = true;
       tbody.querySelectorAll("tr").forEach(r => r.classList.remove("selected"));
       tr.classList.add("selected");
+      // Nếu waitlist đang mở → clear & đóng lại
+      collapseWaitlist();
     }
     validateForm();
   });
@@ -190,6 +192,27 @@ function expandWaitlist(triggerClass) {
 
   validateForm();
   setTimeout(() => card.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+}
+
+// Clear all waitlist fields + collapse the card back to the toggle button.
+// Called when user picks a still-open class while the waitlist is expanded.
+function collapseWaitlist() {
+  const card = document.getElementById("waitlist-card");
+  if (card.hidden) return;
+  // Clear text + checkboxes + month
+  document.querySelector('input[name="waitClass"]').value = "";
+  document.querySelectorAll('input[name="waitMode"]').forEach(cb => cb.checked = false);
+  document.querySelectorAll('input[name="waitTime"]').forEach(cb => cb.checked = false);
+  document.getElementById("waitMonth").value = "";
+  const mpVal = document.getElementById("mp-value");
+  if (mpVal) mpVal.textContent = "Chọn tháng bạn muốn đi học";
+  const mpInput = document.getElementById("month-picker-input");
+  if (mpInput) mpInput.classList.remove("has-value");
+  mpSelected = null;
+  // Hide card, show button again
+  card.hidden = true;
+  document.getElementById("waitlist-toggle").hidden = false;
+  validateForm();
 }
 
 function setupWaitlistToggle() {
