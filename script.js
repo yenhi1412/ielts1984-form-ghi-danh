@@ -1,17 +1,15 @@
-// ===== Class data =====
+// ===== Class data (theo screenshot mẫu mới) =====
 const CLASSES = [
-  { code: "ROOT 06.26 ONL A", mode: "ONLINE",  start: "01/06/2026", session: "Chiều 2-4-6", time: "17:45 - 19:45", fee: "8,900,000 đ", status: "open" },
-  { code: "ROOT 06.26 ONL E", mode: "ONLINE",  start: "08/06/2026", session: "Tối 2-4-6",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "open" },
-  { code: "ROOT 06.26 ONL F", mode: "ONLINE",  start: "09/06/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "full" },
-  { code: "ROOT 06.26 ONL L", mode: "ONLINE",  start: "15/06/2026", session: "Chiều 2-4-6", time: "17:45 - 19:45", fee: "8,900,000 đ", status: "open" },
-  { code: "ROOT 06.26 ONL K", mode: "ONLINE",  start: "16/06/2026", session: "Chiều 3-5-7", time: "17:45 - 19:45", fee: "8,900,000 đ", status: "open" },
-  { code: "ROOT 06.26 ONL P", mode: "ONLINE",  start: "23/06/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "full" },
-  { code: "ROOT 05.26 OFF M", mode: "OFFLINE", start: "26/05/2026", session: "Chiều 3-5-7", time: "17:45 - 19:45", fee: "9,200,000 đ", status: "open" },
-  { code: "ROOT 05.26 OFF L", mode: "OFFLINE", start: "26/05/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "9,200,000 đ", status: "open" },
-  { code: "ROOT 06.26 OFF E", mode: "OFFLINE", start: "08/06/2026", session: "Chiều 2-4-6", time: "17:45 - 19:45", fee: "9,200,000 đ", status: "open" },
-  { code: "ROOT 06.26 OFF F", mode: "OFFLINE", start: "09/06/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "9,200,000 đ", status: "open" },
-  { code: "ROOT 06.26 OFF K", mode: "OFFLINE", start: "16/06/2026", session: "Chiều 3-5-7", time: "17:45 - 19:45", fee: "9,200,000 đ", status: "full" },
+  { code: "ROOT 07.26 ONL A", mode: "ONLINE",  start: "07/07/2026", session: "Chiều 3-5-7", time: "17:45 - 19:45", fee: "8,900,000 đ", status: "open" },
+  { code: "ROOT 07.26 ONL D", mode: "ONLINE",  start: "14/07/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "open" },
+  { code: "ROOT 07.26 ONL H", mode: "ONLINE",  start: "20/07/2026", session: "Tối 2-4-6",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "open" },
+  { code: "ROOT 07.26 ONL G", mode: "ONLINE",  start: "20/07/2026", session: "Chiều 2-4-6", time: "17:45 - 19:45", fee: "8,900,000 đ", status: "open" },
   { code: "ROOT 06.26 OFF P", mode: "OFFLINE", start: "22/06/2026", session: "Tối 2-4-6",   time: "20:00 - 22:00", fee: "9,200,000 đ", status: "open" },
+  { code: "ROOT 07.26 OFF G", mode: "OFFLINE", start: "20/07/2026", session: "Chiều 2-4-6", time: "17:45 - 19:45", fee: "9,200,000 đ", status: "open" },
+  { code: "ROOT 07.26 OFF H", mode: "OFFLINE", start: "21/07/2026", session: "Chiều 3-5-7", time: "17:45 - 19:45", fee: "9,200,000 đ", status: "open" },
+  { code: "ROOT 07.26 OFF L", mode: "OFFLINE", start: "27/07/2026", session: "Tối 2-4-6",   time: "20:00 - 22:00", fee: "9,200,000 đ", status: "open" },
+  { code: "ROOT 07.26 OFF M", mode: "OFFLINE", start: "28/07/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "9,200,000 đ", status: "open" },
+  { code: "ROOT 06.26 ONL P", mode: "ONLINE",  start: "23/06/2026", session: "Tối 3-5-7",   time: "20:00 - 22:00", fee: "8,900,000 đ", status: "full" },
 ];
 
 function renderClassRows() {
