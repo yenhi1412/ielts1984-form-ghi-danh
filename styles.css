@@ -618,23 +618,21 @@ input[type="text"]:focus {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #ffffff;
+  background: transparent;
   color: var(--navy);
-  border: 1px solid var(--border-2);
-  border-radius: var(--radius-btn);
-  padding: 7px 12px;
+  border: none;
+  padding: 6px 0;
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: inherit;
+  transition: color 0.15s ease;
 }
 .waitlist-toggle:hover {
-  background: var(--green-bg);
-  border-color: var(--mint);
-  color: var(--navy);
+  color: var(--mint-2);
 }
-.waitlist-toggle svg { width: 14px; height: 14px; color: var(--muted); }
-.waitlist-toggle:hover svg { color: var(--mint-2); }
 
 /* Animate expanding card */
 .waitlist-card[hidden] { display: none; }
